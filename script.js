@@ -10,58 +10,61 @@ $(function addEvent(){
           let text = $('input').val();
           $('#list').append(li);
           $(li).append(text)
-      
+        $(li).attr('id', 'listItem')
+        
           let crossOutButton = $('<button>X</button>');
-          $(crossOutButton).attr("id", "button2")
-          
-  
-          $(li).click(function(e){
-            target = e.target
-            (target).addClass('delete')
-            (li).addClass('delete')
-          })
-  
-     
+          $(crossOutButton).attr("id", "button2")     
           $(li).append(crossOutButton);
          
-          lid.attr('class', 'show')
-          if (inputValue === '') {
+
+                   if (inputValue === '') {
             $alert("You must write something!");
           } else {
-            
-           
-            let crossOutButton = $('<button>X</button>');
-            $(crossOutButton).attr("id", "button2")
-              
-            $("#lid").append(crossOutButton);
+            $('#list').append(li);
+            $('#input').val('');
           }
+          
+          $('#list').click(function(e){
+            let target = e.target
+            $(target).addClass('strike')
+             
+             })
   
+
+          $('button').on('click', function(e){
+              target = e.target
+              $(target).addClass('delete') + $(li).addClass('delete')
+              
+          })
           
       })
   
-  
+    //   function crossOut(){
+    //     let li = $('#list li')
+    //     li.toggleClass('strike');
+    //   }
+    //   li.on('dblclick', crossOut);      
   //--------------------------------------------------------  //2. Crossing out an item from the list of items:
    
-       $('#list').click(function(e){
-           let target = e.target
-           $(target).addClass('strike')
-            
-            })
-  
-        $('#list'||'.button2').dblclick(function(e){
-              let target = e.target
-              let li = $('#lid')
+ 
+    //     $('#list'||'.button2').dblclick(function(e){
+    //           let target = e.target
+    //           let li = $('#lid')
               
-              $(".strike").addClass('delete');
-              $(li).addClass('delete')
-              console.log(li)
-               })
+    //           $(".strike").addClass('delete');
+    //           $(li).addClass('delete')
+    //           console.log(li)
+    //            })
        })
+//   let li = $('li')
+//        function crossOut(){
+//         li.toggleClass('strike');
+//       }
+      
+//       li.on('dblclick', crossOut);
   
   
-  
-  
-  
+
   
   // If you get stuck, you can look below for the jQuery code. However, try yourself to convert the vanilla JS code provided to jQuery first.
   
